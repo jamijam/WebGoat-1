@@ -26,7 +26,7 @@
                     <plugin>
                         <groupId>com.spotify</groupId>
                         <artifactId>docker-maven-plugin</artifactId>
-                        <version>0.4.10</version>
+                        <version>1.2.0</version>
                         <configuration>
                             <imageName>webgoat/webgoat-8.0</imageName>
                             <dockerDirectory>src/main/docker_rpi3</dockerDirectory>
@@ -44,6 +44,18 @@
                             </resources>
                         </configuration>
                     </plugin>
+                    <plugin>
+                       <groupId>org.owasp</groupId>
+                       <artifactId>dependency-check-maven</artifactId>
+                       <version>4.0.2</version>
+                       <executions>
+                           <execution>
+                               <goals>
+                                   <goal>check</goal>
+                               </goals>
+                           </execution>
+                       </executions>
+                     </plugin>
                 </plugins>
             </build>
         </profile>
@@ -59,7 +71,7 @@
                     <plugin>
                         <groupId>com.spotify</groupId>
                         <artifactId>docker-maven-plugin</artifactId>
-                        <version>0.4.10</version>
+                        <version>1.2.0</version>
                         <configuration>
                             <imageName>webgoat/webgoat-8.0</imageName>
                             <dockerDirectory>${project.basedir}</dockerDirectory>
@@ -86,7 +98,7 @@
         <dependency>
             <groupId>com.spotify</groupId>
             <artifactId>docker-maven-plugin</artifactId>
-            <version>0.4.10</version>
+            <version>1.2.0</version>
             <scope>test</scope>
             <optional>true</optional>
         </dependency>
